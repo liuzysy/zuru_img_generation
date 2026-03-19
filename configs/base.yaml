@@ -1,0 +1,28 @@
+data:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  generated_dir: data/generated
+  image_size: 1024
+
+model:
+  family: sdxl
+  base_model: stabilityai/stable-diffusion-xl-base-1.0
+  controlnet_model: diffusers/controlnet-canny-sdxl-1.0
+  lora_path: outputs/lora
+
+training:
+  output_dir: outputs
+  epochs: 10
+  batch_size: 1
+  learning_rate: 1.0e-4
+  weight_decay: 0.01
+  lora_rank: 8
+  mixed_precision: bf16
+
+inference:
+  num_inference_steps: 28
+  guidance_scale: 3.0
+  controlnet_conditioning_scale: 1.25
+  iou_threshold: 0.93
+  max_resamples: 4
+  negative_prompt: "deformed body shape, extra limbs, distorted outline, wrong silhouette, changed body shape, blurry image, non-plush material, low detail"

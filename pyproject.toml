@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zuru-img-generation"
+version = "0.1.0"
+description = "Shape-controlled small-sample image generation pipeline for ZURU Fuggler-style assets"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Laihua Assistant" }]
+dependencies = [
+  "numpy>=1.26",
+  "Pillow>=10.0",
+  "PyYAML>=6.0",
+  "torch>=2.2",
+  "torchvision>=0.17",
+  "diffusers>=0.30",
+  "transformers>=4.44",
+  "accelerate>=0.33",
+  "peft>=0.12",
+  "safetensors>=0.4",
+  "opencv-python>=4.10",
+  "scikit-image>=0.24",
+  "tqdm>=4.66",
+  "scipy>=1.13",
+  "huggingface-hub>=0.24"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[project.scripts]
+zuru-img = "zuru_img_generation.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
